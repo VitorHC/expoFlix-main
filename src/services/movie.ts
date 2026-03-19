@@ -1,6 +1,53 @@
-//O ARQUIVO PRECISA SER EXPORTADO PARA QUE OUTROS ARQUIVOS DENTRO DO NOSSO APP CONSIGA ENXERGAR
-//SÓ COLOQUE O PREFIXO export
-const Movies = [
+import {api} from '@/services/api';
+import {Movie} from '@/types/movie.type';
+
+export const getPopularMovies = async (): Promise<Movie[]> => {
+  try {
+    const response = await api.get('/movie/popular');
+    const movies: Movie[] = response.data.results.map((movie: any) => ({
+      id: movie.id.toString(),
+      movie_id: movie.id,
+      language: movie.original_language,
+      title: movie.title,
+      description: movie.overview,
+      poster: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
+      backdrop: `https://image.tmdb.org/t/p/original${movie.backdrop_path}`,
+      release_date: movie.release_date,
+      rank: movie.vote_average,
+    } ));
+    return movies;
+  } catch (error) {
+    console.error('Erro ao buscar filmes:', error);
+    throw error;
+  }
+};
+
+export const searchMovies = async (query: string): Promise<Movie[]> => {
+  try {
+    const response = await api.get('/search/movie', {
+      params: {
+        query: query,
+      },
+    });
+    const movies: Movie[] = response.data.results.map((movie: any) => ({
+      id: movie.id.toString(),
+      movie_id: movie.id,
+      language: movie.original_language,
+      title: movie.title,
+      description: movie.overview,
+      poster: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
+      backdrop: `https://image.tmdb.org/t/p/original${movie.backdrop_path}`,
+      release_date: movie.release_date,
+      rank: movie.vote_average,
+    } ));
+    return movies;
+  } catch (error) {
+    console.error('Erro ao buscar filmes:', error);
+    throw error;
+  }
+};
+
+export const Movies = [
   {
     id: "286e3f76-377f-4503-85f2-18e78f1a9104",
     movie_id: 604578,

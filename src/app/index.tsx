@@ -11,8 +11,8 @@ export default function Login() {
   const [error, setError] = useState<string | null>(null);
 
 
-  const validarEmail = "boanoite.punpun@gmail.com";
-  const validarPassword = "BoanoitePunpun";
+  const validarEmail = "123@gmail.com";
+  const validarPassword = "123456";
 
   const router = useRouter();
 

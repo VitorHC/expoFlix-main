@@ -10,13 +10,13 @@ type Props = {
 export const MovieCard = ({ item }: Props) => {
   return (
     <View style={styles.card}>
-      <Image src={item.poster} style={styles.image} resizeMode="contain" />
-      <View>
+      <Image source={{uri: item.poster}} style={styles.image} resizeMode="contain" />
+      <View style={styles.containerCard}>
         <Text style={styles.titleMovie}>{item.title}</Text>
         <Text>{item.title}</Text>
-        <Text>Lang: {item.language}</Text>
+        <Text style={styles.text}>Lang: {item.language}</Text>
         <View style={styles.rank}>
-          <Text>Rank:</Text>
+          <Text style={styles.rank}>Rank:</Text>
           <Text style={{ color: "yellow" }}>{item.rank}</Text>
         </View>
       </View>
@@ -50,4 +50,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     gap: 4,
   },
+    text: {
+    color: "#ccc",
+    fontSize: 14,
+  }
 });

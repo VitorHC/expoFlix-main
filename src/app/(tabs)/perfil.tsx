@@ -27,4 +27,45 @@ export default function Perfil() {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#19244B",
+    padding: 16,
+  },
+  perfil: {
+    color: "white",
+    fontSize: 20,
+    fontWeight: "600",
+    marginBottom: 30,
+  },
+  perfilContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  avatar: {
+    width: 120,
+    height: 120,
+    borderRadius: 60,
+    marginBottom: 20,
+  },
+  text: {
+    color: "white",
+    fontSize: 16,
+    marginBottom: 10,
+  },
+  button: {
+    backgroundColor: "#86A16C",
+    width: 300,
+    height: 40,
+    marginTop: 30,
+    borderRadius: 8,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  btnTitle: {
+    color: "#fff",
+    fontWeight: "400",
+    fontSize: 16,
+  },
+});
